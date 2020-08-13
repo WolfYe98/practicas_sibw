@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Modificar evento&nbsp{{id}}</title>
+	<link rel="stylesheet" type="text/css" href="styles/modificarEvento.css">
+</head>
+<body>
+	<form action="modificarEvento.php?ev={{id}}" method="POST" id="formEvento" enctype="multipart/form-data">
+		<input type="text" name="titulo" placeholder="Titulo nuevo" value="{{evento['nombre']}}"id="titulo"/>
+		<input type="date" name="fechaEvento" value="{{evento['fecha']}}"/>
+		<textarea name="descripcion1" placeholder="Introduccion nuevo">{{evento['descrip1'] | raw}}</textarea>
+		<textarea name="descripcion2" placeholder="Desarrollo y desenlace nuevo">{{evento['descrip2'] | raw}}</textarea>
+		<div class="areaInput">
+			<h6>Publicar:
+			<select name="publicar">
+				<option value="0">No</option>
+				<option value="1">Si</option>
+			</select>
+		</div>
+		<div>
+			<h5>Añadir imagen</h5><input type="file" name="imagen" value="Añadir imagen">
+		</div>
+		<input type="submit" name="guardar" value="Guardar" style="width: 80px; margin:auto;"/>
+	</form>
+</body>
+</html>

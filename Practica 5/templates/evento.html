@@ -1,0 +1,119 @@
+{% extends "padreEventos.html" %}
+{%block metainfor%}
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Evento</title>
+        <link rel="stylesheet" type="text/css" href=" styles/evento.css">
+        <script type='text/javascript' src=" js/evento.js"></script>
+        {% for pal in palabrasPro %}
+        <script>
+            añadeProhibidas("{{pal}}");
+        </script>
+        {% endfor %}
+    </head>
+{%endblock%}
+
+
+{%block cabecera%}
+    <span id="Encab">{{ evento['nombre']}}</span>
+    <img src=" imagenes/hiphop.png" id="logo">
+    <nav id="menus">
+        <span class="spanMenu">menu 1</span>
+        <span class="spanMenu">menu 2</span>
+        <span class="spanMenu">menu 3</span>
+    </nav>
+{%endblock%}
+  
+{%block comentarios%}
+   <div id="comentarioExistente">
+        <div id="coment1">
+        </div>
+        {% for com in comentarios %}
+        <div id="coment1">
+            <h5>Autor: {{com.autor}}</h5>
+            <h6 class="fecha">
+                {{com.fecha}}<br/>
+                {{com.hora}}
+            </h6>
+            <h5>
+                {{com.comentario | raw}}
+            </h5>    
+        </div>
+        {% endfor %}
+    </div>
+    {% if sesion %}
+     <form action="sendComment.php?ev={{idEvento}}" method="post">
+        <div id="introducirComentario">
+            <div id ="tituloAñade">Añade tu comentario:</div><br>
+            <div>
+                Nombre:
+                <input name="nombre" type="text" id="nombre">
+            </div>
+            <div>
+                email:<br>
+                <input name="email" type="email" id="mail">
+            </div>
+            <div>
+                Comentario
+                <textarea name="areatexto" id="areaComentario" cols="30" rows="6" onkeyup="revisarPalabrasProhibidas()"></textarea>
+            </div>
+        </div>
+        <div id="botonEnviar" type="submit">
+            <button onclick="mandarComentario()">Enviar</button>
+        </div>
+    </form>
+    {%else%}
+        <div id="introducirComentario">
+        </div>
+    {%endif%}
+    <div id="comentarOcultar">
+        <button onclick="ocultarComentarios()">Cerrar</button>
+    </div>
+    <div id="sesiones" stye="font-size=10px">
+    {% if sesion%}
+        <a href="panelUsuario.php?ev={{idEvento}}"style="color:blue;">Panel Usuario</a>
+        <a href="logout.php?ev={{idEvento}}"style="color:blue;">Log Out</a>
+    {%else%}
+        <a href='login.php?ev={{idEvento}}' style="color:blue;">Log In</a>
+        <a href='register.php?ev={{idEvento}}' style="color:blue;">Register</a>
+    {% endif %}
+    </div>
+{%endblock%}
+
+            
+{% block parteConImg %}
+    <h1>{{ evento['nombre'] }}</h1>
+    <span> {{ evento['lugar'] }} </span>
+        <div id="imageGalery">
+            {%for i in img%}
+                <img class="mySlides" src=" {{i}}" id="ondance" title="{{ evento['lugar'] }} ">
+            {%endfor%}
+            <button class="buttonSlides left" onclick="plusDivs(-1)">&#10094;</button>
+            <button class="buttonSlides right" onclick="plusDivs(1)">&#10095;</button>
+        </div>
+    <h4><i>{{ evento['fecha'] }}</i></h4>
+                    
+    {{ evento['descrip1'] | raw }}
+{% endblock %}
+
+{% block parteDos %}
+    {{ evento['descrip2'] | raw }}
+{%endblock%}
+
+{%block modificarEvento%}
+	{%if userinfo['tipo']>= 3%}
+		<div class="editarEvento">
+            <form method="POST" action="modificarEvento.php?ev={{idEvento}}">
+            	<input type="hidden" name="editarEvento" value="{{idEvento}}"/>
+            	<input type="submit" value="Editar evento">
+            </form>
+        </div>
+        <div class="editarEvento">
+            <form method="POST" action="eliminarEvento.php">
+            	<input type="hidden" name="eliminarEvento" value="{{idEvento}}"/>
+            	<input type="submit" value="Borrar evento">
+            </form>
+        </div>
+	{%endif%}
+{%endblock%}

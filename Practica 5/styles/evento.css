@@ -1,0 +1,200 @@
+/*Especifica el tipo de letra usada en Evento*/
+.mySlides{
+    display: none;
+    width: 100%;
+    height: 100%;
+    float: right;
+    top: 20%;
+    margin-left: 10%;
+    transition-duration: 0.4s;
+}
+.buttonSlides{
+    opacity: 0.7;
+    border-style: none;
+    transition-duration: 0.4s;
+}
+.buttonSlides:hover{
+    background-color: rgb(112, 201, 189);
+    cursor:pointer;
+}
+.buttonSlides.right {
+    position: relative;
+    float: right;
+}
+.buttonSlides.left {
+    position: relative;
+    float: left;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+/*Configura la cabecera, su posicion, color de fondo y tamaño*/
+header{
+    background-color:rgb(112, 201, 189);
+    color: white;
+    width: 100%;
+    border-style:solid;
+    border-width: 3px;
+    border-color:antiquewhite;
+    border-radius: 10px;
+    height: 40px;
+    padding-top:10px;
+    text-align: center;   
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+}
+/*Especifica el lugar donde debe
+ de encontrar el titulo de la cabecera
+    */
+#Encab{
+    top: 10%;
+    left: 42%;
+    position: absolute;
+}
+/*Especifica el lugar donde se encontraria el logo en la cabecera*/
+#logo{
+    width: 60px;
+    left: 15px;
+    height: 100%;
+    top: 2%;
+    position: absolute;
+}
+/*Especifica el lugar donde se encuentra el menu*/
+#menus{
+    font-size: small;
+    left: 100px;
+    position: absolute;
+    width: 50%;
+    top:70%;
+}
+.spanMenu{
+    margin-right: 10%;
+}
+
+/*Especifica el formato de los elementos auxiliares*/
+#asideComent{
+    position: fixed;
+    float: right;
+    width: 200px;
+    height: 100%;
+    background-color: pink;
+    opacity: 0.7;
+    transition: all 500ms linear;
+    right: -200px;
+}
+#auxiliares{
+    position:absolute;
+    left: 0%;
+    top:50%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*Especifica el formato de los contenidos principales*/
+section{
+    margin-top: 10px;
+    color:purple;
+    width: 80%;
+    height: 100%;
+}
+#tituloTabla{
+    width: 100%;
+}
+#imageGalery{
+    float: right;
+    width: 30%;
+    height: 30%;
+    top: 20%;
+    margin-right: 10%;
+    transition-duration: 0.4s;
+}
+#segundaParte{
+    margin-top: 5%;
+}
+#comentarioExistente{
+    border-color: red;
+    border-width: 1px;
+    border-style: solid;
+    display: flex;
+    margin-top: 10px;
+    height: 30%;
+    width: 190px;
+    flex-direction: column;
+    overflow-y:scroll;
+    justify-content: space-between;
+}
+#comentarMostrar{
+    margin-top: 2%;
+    float: right;
+}
+.editarEvento{
+    margin-top: 2%;
+    float:right;
+}
+#comentarOcultar{
+    margin-top: 2%;
+    margin-left: 40%;
+}
+#sesiones{
+    margin-left: 40%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+#tituloComentarios{
+    margin-top: 10px;
+}
+#nombre{
+    width: 150px;
+}
+#mail{
+    margin-left: 0%;
+    width:150px;
+}
+#areaComentario{
+    width: 150px;
+}
+
+#introducirComentario{
+    display: flex;
+    flex-direction: column;
+    font-size: 80%;
+    margin-top: 2%;
+}
+#botonEnviar{
+    margin-top: 10px;
+    margin-left: 40%;
+}
+.fecha{
+    font-style: italic;
+}
+
+/*Especifica el formato del pie de página*/
+footer{
+    clear:both;
+    border-top: 1px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    border-color: black;
+    border-top-style: solid;
+    text-align: center;
+    position: relative;
+}
+#copyRight{
+    font-size: small;  
+}
+#redesNav{
+    left: 80%;
+    width: 20%;
+    top: 20%;
+    float: right;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+}
+.redes{
+    width: 20%;
+}
+.spanFooter{
+    top: 0%;
+}

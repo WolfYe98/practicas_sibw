@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+    <!--meta informaciones-->
+    <head>
+        <meta charset="UTF-8"/>
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    	<link rel="stylesheet" type="text/css" href="styles/logIn.css">
+    </head>
+	<body>
+		<div id="logInDiv">
+			<form action="register.php" method="POST" id="formulario">
+				<h2>Register</h2>
+				<input type="text" name="usuario" placeholder="Usuario" class="inputForm"/>
+				<input type="password" name="contrasenia" placeholder="Password" class="inputForm"/>
+				<input type="date" name="nacimiento" placeholder="YYYY-MM-DD" class="inputForm"/>
+				{% if usernameerror %}
+					<p>El nombre del usuario es repetido</p>
+				{% endif %}
+				<button type="submit" class="inputForm">Registrar</button>
+			</form>
+		</div>
+	</body>
+</html>

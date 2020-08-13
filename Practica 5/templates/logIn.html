@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+    <!--meta informaciones-->
+    <head>
+        <meta charset="UTF-8"/>
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    	<link rel="stylesheet" type="text/css" href="styles/logIn.css">
+    </head>
+	<body>
+		<div id="logInDiv">
+			<form action="login.php?ev={{ev}}" method="POST" id="formulario">
+				<h2>Log In</h2>
+				<input type="text" name="usuario" placeholder="Usuario" class="inputForm"/>
+				{% if usernameerror == true %}
+					<h6 style="color:red;margin: auto;">El nombre del usuario no existe</h6>
+				{% endif %}
+				<input type="password" name="contrasenia" placeholder="Password" class="inputForm"/>
+				{% if passworderror == true %}
+					<h6 style="color:red;margin: auto;">Contraseña incorrecta</h6>
+				{% endif %}
+				<button type="submit" class="inputForm">enviar</button>
+			</form>
+		</div>
+	</body>
+</html>

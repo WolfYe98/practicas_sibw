@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+    <!--meta informaciones-->
+    {%block metainfor%}
+   
+    {%endblock%}
+
+    <!--Cuerpo de la pagina de evento-->
+    <body onload="showDivs(1)">
+        <!--Cabecera de la pagina de evento
+            incluyendo titulo, logo y un menu-->
+        <header>
+            {% block cabecera %}
+            {% endblock %}
+        </header>
+        <!--Elementos auxiliares a la izquierda de la pagina de evento
+            aqui iría enlaces o informaciones auxiliares-->
+        <aside id="asideComent">
+            <div id="tituloComentarios">COMENTARIOS:</div>
+            {% block comentarios %}
+            
+            {% endblock %}
+            
+        </aside>
+
+
+        <!--Contenido principal de la pagina
+            incluye una imagen y un texto que explica un poco
+            sobre el evento e incluye también informacion de contacto-->
+        <section>
+            <div id="tituloTabla">
+                {% block parteConImg %}
+                {% endblock %}
+            </div>
+                
+            <div id="segundaParte">
+                {%block parteDos%}
+                {%endblock%}
+            </div>
+
+                <!--Comentarios-->
+                
+                
+            <div id="comentarMostrar">
+                <button onclick="mostrarComentarios()">Comentarios</button>
+            </div>
+            {%block modificarEvento%}
+            {%endblock%}
+        </section>
+        <!--Pie de páguna, con copyright y con botones que nos llevan a 
+            otras paginas como facebook, twitter e imprimir-->
+        <footer>
+            <div>Eventos Ming</div>
+            <div id="copyRight">&copy 2020 - Bate Ye</div>
+            <nav id="redesNav">
+                <!--Este nos lleva a facebook-->
+                <span class="spanFooter">
+                    <abbr title="Ir a Facebook">
+                        <a href="https://www.facebook.com">
+                            <img src=" imagenes/facebook.png" class="redes">
+                        </a>
+                    </abbr>
+                </span>
+                <!--Este nos lleva a twitter-->
+                <span class="spanFooter">
+                    <abbr title="Ir a Twitter">
+                        <a href="https://twitter.com">
+                            <img src=" imagenes/twitter.png" class="redes">
+                        </a>
+                    </abbr>
+                </span>
+                <!--Este nos lleva a evento_imprimir-->
+                <span class="spanFooter">
+                    <abbr title="Imprimir">
+                        <a href="templates/evento_imprimir.html">
+                            <img src=" imagenes/imprimir.png" class="redes">
+                        </a>
+                    </abbr>
+                </span>
+            </nav>
+
+        </footer>
+    </body>
+</html>

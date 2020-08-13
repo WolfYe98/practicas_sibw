@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Panel de usuario</title>
+	<link rel="stylesheet" type="text/css" href="styles/panel.css">
+	<script src="js/panel.js" type="text/javascript" charset="utf-8" async defer></script>
+</head>
+
+<body onresize="ajustarComentarios()">
+	<aside>
+		<div id="mostrarBotones">
+			{% if userinfo['tipo'] == 1%}
+			<button onclick="mostrarDatos()">Datos Usuario</button>
+			{% elseif userinfo['tipo'] == 2%}
+			<button onclick="mostrarDatos()">Datos Usuario</button>
+			<button onclick="mostrarComents()">Editar coments</button>
+			{% elseif userinfo['tipo'] == 3%}
+			<button onclick="mostrarDatos()">Datos Usuario</button>
+			<button onclick="mostrarComents()">Editar coments</button>
+			{% elseif userinfo['tipo'] == 4%}
+			<button onclick="mostrarDatos()">Datos Usuario</button>
+			<button onclick="mostrarComents()">Editar coments</button>
+			<button onclick="mostrarTipoUser()">Modificar roles</button>
+			{%endif%}
+		</div>
+		<a href="logout.php">Log Out</a>
+		<a href="index.php">Volver a index</a>
+	</aside>
+	<section >
+		<form method="POST" action="modificarUsuario.php" id="formularioDatos" enctype="multipart/form-data">
+			<img src="{{userinfo['img']}}" id="image"/><br/>
+			<input type="file" name="imagen" id="botonEditarImagen"/><br>
+			<input type="text" name="username" value="{{userinfo['username']}}" placeholder="User Name"/><br/>
+			<input type="date" name="fecha" value="{{userinfo['nacimiento']}}" placeholder="YYYY-MM-DD"/><br/>
+			<input type="submit"value="Guardar" style="width: 30%; margin: auto;"/><br/>
+			<input type="reset" value="Cancelar" style="width: 30%; margin: auto;"/><br/>
+		</form>
+
+		<div id="ordenarComents">
+			{%set i = 1%}
+			{% for c in comentarios%}
+			<div class="coments">
+				<h6>{{c.id}}</h6>
+				<h6>{{c.autor}}</h6>
+				<h6>{{c.fecha}}</h6>
+				<h6 class="comentarioCliente">{{c.comentario | raw}}</h6>
+				<form action="editarComentarios.php" method="POST" class="formComent">
+					<input type="hidden" name="editarComentario" value="{{c.comentario}}"/>
+					<input type="text" name="newComentario" placeholder="Comentario nuevo"/>
+					<input type="submit" value="Guardar"/>
+					<input type="reset" value="Cancelar"/>
+				</form>
+				<form action="editarComentarios.php " method="POST" class="formComent">
+					<!--Si quiero eliminar un comentario, envio a POST el numero del comentario que quiero eliminar-->
+					<input type="hidden" name="eliminarComentario" value="{{c.numComentario}}"/>
+					<input type="submit" value="Eliminar"/>
+				</form>
+			</div>
+			{%set i = i+1%}
+			{%endfor%}
+		</div>
+		
+		<div id="ordenarEventos">
+			<div class="formularioEventos">
+				<form action="editarEvento.php " method="POST" class="formularioEventos">
+					<input type="text" value="{{idEv}}"placeholder="ID" style="width: 20px;"/>
+					<input type="hidden" name="editarEvento" value="{{idEv}}"/>
+					<input type="textarea" value="{{titulo}}" placeholder="Titulo"/>
+					<input type="date" value="{{fechaEvento}}" placeholder="YYYY-MM-DD"/>
+					<input type="textarea" value="{{parte1}}" placeholder="Texto"/>
+					<input type="textarea" value="{{parteDos}}" placeholder="Texto"/>
+					<input type="submit" value="Guardar"/>
+					<input type="reset" value="Reset"/>
+				</form>	
+				<form action="editarComentario.php " method="POST">
+					<input type="hidden" name="eliminarEvento" value={{idEv}}/>
+					<input type="submit" value="Eliminar"/>
+				</form>
+			</div>
+		</div>
+		<div id="aniadirEvento">
+			<form action="aniadirEvento.php " method="POST" class="formularioEventos">
+				<input type="textarea" name="tituloEventoNuevo" placeholder="Titulo"/>
+				<input type="date" name="fechaEventoNuevo"  placeholder="YYYY-MM-DD"/>
+				<input type="textarea" name="parte1Nuevo" placeholder="Introducción"/>
+				<input type="textarea" name="partedosNuevo" placeholder="Descripción y desenlace"/>
+				<input type="submit" value="Añadir"/>
+				<input type="reset" value="Cancelar"/>
+			</form>
+		</div>
+		<div id="modificarTipoUsuario">
+			{%for u in usuarios%}
+			<form action="superUsuario.php " method="POST" class="formularioEventos">
+				<h5>{{u.username}} </h5>
+				<h5>Tipo:</h5>
+				{%if u.username != "ming" %}
+					<input type="hidden" value="{{u.username}}" name="cambiarTipoUser"/>
+					<input type="number" name="tipo" min="0" max="4" step="1" placeholder="1-4" value="{{u.tipo}}" class="inputTipoUsuario" />
+				{%else%}
+					<h5>{{u.tipo}}</h5>
+				{%endif%}
+				<input type="submit" value="Modificar"class="inputSuperUsuario"/>
+				<input type="reset" value="Cancelar"class="inputSuperUsuario"/>
+			</form>
+			{%endfor%}
+		</div>
+	</section>
+</body>
+</html>

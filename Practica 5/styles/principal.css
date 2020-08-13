@@ -1,0 +1,142 @@
+@charset "utf-8";
+*{
+    margin: 0%;
+    padding: 0%;
+}
+/*Formato de la cabecera*/
+header{
+    background-color:blueviolet;
+    color: white;
+    width: 95%;
+    height: 20%;
+    border-style:ridge;
+    border-width: 3px;
+    border-color:antiquewhite;
+    padding: 2em 2em 2em 2em;
+    text-align: center;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+}
+/*Formato del menu en la cabecera*/
+nav{
+    font-size: small;
+    left: 100px;
+    position: absolute;
+    width: 60%;
+    top:70%;
+}
+
+#busqueda{
+    position: relative;
+    float: right;
+}
+@media (max-width: 610px){
+   #busqueda{
+        position: relative;
+        float: right;
+        width: 50px;
+    } 
+}
+.menu{
+    padding: 8%;
+    left: 50%;
+}
+/*Formato del logo en la cabecera*/
+#logoImg{
+    height: 90%;
+    left: 1%;
+    float: left;
+    top: 8%;
+    position: absolute;
+}
+/*Formato del titulo de la cabecera*/
+#Encabezado{
+    top: 30%;
+    left: 42%;
+    position: absolute;
+}
+
+/*Formato de los elementos auxiliares*/
+aside{
+    background-color:lightblue;
+    color:white;
+    margin-right: 5px;
+    width:9%;
+    border-style: solid;
+    border-width: 2px;
+    padding: 1em 1em 100% 1em;
+    float: left;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+} 
+#asideSpan{
+    position: absolute;
+    top:50%;
+    left: 5%;
+}
+.sesiones{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: auto;
+    background-color: lightblue;
+}
+/*Formato de los contenidos principales*/
+section{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+#seccionImagenes{
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    max-height: 750px;
+}
+@media (min-width: 1200px){
+    #seccionImagenes{
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+        max-height: 1300px;
+    }
+}
+@media (max-width: 610px) {
+    #seccionImagenes{
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+        max-height: 500px;
+    }
+}
+
+
+.imagenes{
+    width: 70%;
+    margin-left: 14%;
+    margin-top: 2%;
+}
+.imagenEvento{
+    width:95%;
+    float: left;
+}
+
+/*Formato del pie de pagina*/
+footer{
+    clear: both;
+    background-color: white;
+    color: black;
+    width: 100%;
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+}
+#copyRight{
+    font-size: 90%;
+}

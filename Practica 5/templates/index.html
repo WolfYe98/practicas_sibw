@@ -1,0 +1,55 @@
+{% extends "padrePrincipal.html" %}
+
+{% block metaInformacion %}
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Principal</title>
+    <link rel="stylesheet" type="text/css" href="styles/principal.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script language="JavaScript" src="js/index.js" type="text/javascript"></script>
+{% endblock %}
+    
+
+{% block cabecera %}
+    <img src=" imagenes/hiphop.png" id="logoImg">
+            
+    <span id="Encabezado">Yes We Dance Camp</span>
+            
+    <nav>
+        <span class="menu">menu 1</span>
+        <span class="menu">menu 2</span>
+        <span class="menu">menu 3</span>
+    </nav>
+    <input id="busqueda" placeholder="Buscar..." />
+{% endblock %}
+
+
+{% block auxiliares %}
+    <span id="asideSpan">elementos auxiliares</span> 
+    <div class=sesiones>
+        {%if not sesionIniciada %}
+            <a href="login.php?ev=0" style="color:blue;" >Log In</a><br/>
+            <a href="register.php?ev=0" style="color:blue;">Register</a>
+        {%else%}
+            <a href="panelUsuario.php?ev=0"style="color:blue;">Panel Usuario</a><br/>
+            <a href="logout.php?ev=0"style="color:blue;">Log Out</a>
+        {%endif%}
+    </div>
+{% endblock %}
+        
+
+{% block central%}
+<div id="seccionImagenes">
+
+<div class="imagenes">
+    
+</div>
+
+</div>
+{%if usuario['tipo'] >= 3 %}
+    <form action="aniadeEvento.php" style="margin: auto;padding-top: 30px;">
+        <input type="submit" value="Añadir evento">
+    </form>
+{%endif%}
+
+{% endblock %}

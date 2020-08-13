@@ -1,0 +1,99 @@
+aside{
+    background-color:lightblue;
+    color:white;
+    margin-right: 5px;
+    width: 10%;
+    min-width: 100px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
+    height: 100%;
+    padding: 1vh 1vh 125% 1vh;
+    float: left;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+} 
+
+#image{
+	margin-top: 10px;
+	width: 60%;
+	height: 60%;
+	margin: auto;
+}
+#botonEditarImagen{
+	font-size: 50%;
+	margin:center;
+	text-align: left;
+	align-content: center;
+	margin: auto;
+}
+
+#mostrarBotones{
+	margin-top: 20px;
+}
+
+#formularioDatos{
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	width: 70%;
+	justify-content: space-between;
+	padding-top: 30px;
+}
+#ordenarComents{
+	display: none;
+	flex-direction: column;
+	margin: auto;
+	border-style: solid;
+	border-radius: 10px;
+	border-color: black;
+	border-width: 1px;
+}
+.coments{
+	padding-top: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+.formComent{
+	padding-top: 20px;
+	font-size: 50%;
+}
+.comentarioCliente{
+	display: flex;
+	flex-direction: column;
+	overflow-y: scroll;
+	width: 100px;
+}
+#ordenarEventos{
+	display: none;
+	flex-direction: column;
+	margin: auto;
+}
+#aniadirEvento{
+	display: none;
+	flex-direction: column;
+	margin: auto;
+}
+.formularioEventos{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+#modificarTipoUsuario{
+	display: none;
+	flex-direction: column;
+	justify-content: space-around;
+}
+.inputSuperUsuario{
+	width: 80px;
+	height: 10px;
+	margin-top: 20px;
+}
+.inputTipoUsuario{
+	width: 30px;
+	height: 10px;
+	margin-top: 20px;
+}

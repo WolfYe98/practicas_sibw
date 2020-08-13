@@ -1,0 +1,20 @@
+#formEvento{
+	margin:auto;
+	padding: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.areaTexto{
+	width: 70%;
+	height: 50px;
+	margin: auto;
+}
+.areaInput{
+	width: 50%;
+	height: 30px;
+	margin: auto;
+}
+.imgs{
+	margin: auto;
+}

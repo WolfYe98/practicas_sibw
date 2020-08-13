@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Añadir evento&nbsp{{id}}</title>
+	<link rel="stylesheet" type="text/css" href="styles/aniadeEvento.css">
+</head>
+<body>
+	<form action="aniadeEvento.php" method="POST" id="formEvento" enctype="multipart/form-data">
+		<input type="text" name="tituloEvento" placeholder="Titulo evento"id="titulo" value="" class="areaInput"/>
+		{%if errores[0]['errorTitulo'] == true%}
+			<h6 style="color:red; float:left;" class="areaInput">Introduzca un titulo</h6>
+		{%endif%}
+		<input type="text" name="lugar" placeholder="Lugar evento" class="areaInput"/>
+		{%if errores[1]['errorLugar'] == true%}
+			<h6 style="color:red; float:left;" class="areaInput">Introduzca el lugar del evento</h6>
+		{%endif%}
+		<input type="date" name="fechaEvento" placeholder="Fecha evento" class="areaInput"/><br/>
+		{%if errores[2]['errorFecha'] == true%}
+			<h6 style="color:red; float:left;" class="areaInput">Introduzca una fecha</h6>
+		{%endif%}
+		<textarea name="descripcion1" placeholder="Introduccion nuevo" class="areaTexto"></textarea>
+		<textarea name="descripcion2" placeholder="Desarrollo y desenlace nuevo" class="areaTexto"></textarea>
+		<div class="areaInput">
+			<h6>Publicar:
+			<select name="publicar">
+				<option value="0">No</option>
+				<option value="1">Si</option>
+			</select>
+		</div>
+		<div class="imgs">
+			<h5>Añadir imagen para el evento</h5><input type="file" name="imagen" value="Añadir imagen" >
+		</div>
+		<div class="imgs">
+			<h5>Añadir imagen para la pagina principal</h5><input type="file" name="imagenIndex" value="Añadir imagen">
+		</div>
+		{%if errores[3]['errorImgIndex'] == true%}
+			<h6 style="color:red; float:right;" class="areaInput">Por favor, inserte una imagen para la pagina principal</h6>
+		{%endif%}
+		<input type="submit" name="guardar" value="Guardar" style="width: 80px; margin:auto;"/>
+	</form>
+</body>
+</html>
